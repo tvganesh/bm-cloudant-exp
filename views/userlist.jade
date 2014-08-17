@@ -1,16 +1,14 @@
 extends layout
 
 block content
-  h1= "Display the list of Users"
+  h1= "Display the list of books"
   p 
-  strong Firstname Lastname   Mobile
+  strong Title Author 
                   
   table
-     each user, i in userlist
+     each book, i in userlist
         tr
-          td #{user.FirstName}
-          td #{user.LastName}
-          td #{user.Mobile}
+          td #{book}
   p
   p
   a(href='/') Home

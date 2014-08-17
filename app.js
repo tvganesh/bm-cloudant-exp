@@ -117,5 +117,24 @@ http.createServer(app).listen(app.get('port'), function(){
 		db.replicate.to(remote, opts);
 		db.replicate.from(remote, opts);			
 		console.log("Reached3");  
+		// Put 3 documents into the DB
+		db.put({
+			  author: 'John Grisham',
+			  Title : 'The Firm'		  
+			}, 'book1', function (err, response) {
+			  console.log(err || response);
+			});
+		 db.put({
+			  author: 'Authur C Clarke',
+			  Title : '2001: A Space Odyssey'		  
+			}, 'book2', function (err, response) {
+			  console.log(err || response);
+			});
+		 db.put({
+			  author: 'Dan Brown',
+			  Title : 'Digital Fortress'		  
+			}, 'book3', function (err, response) {
+			  console.log(err || response);
+			});
   	
   }); 

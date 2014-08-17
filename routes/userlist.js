@@ -40,19 +40,26 @@ exports.list =  function(req, res) {
 		val = response.total_rows;		
 		var details = "";
 		j=0;
+		var booklist = new Array(val);
+		console.log(response);
 		for(i=0; i < val; i++) {
 						
-			
+			//booklist[i] = new Array(2);
 			db.get(response.rows[i].id, function (err,doc){
 				 j++;	
-			    details= details + JSON.stringify(doc.Title) + " by  " +  JSON.stringify(doc.author) + "\n";
+				booklist[j] = new Array(2);
+				booklist[j][0] = doc.Title;
+				booklist[j][1] = doc.author; 
+				
+			    details= details + JSON.stringify(doc.Title) + "  " +  JSON.stringify(doc.author) + "\n";
 			    // Kludge because of Node.js asynchronous handling. To be fixed - T V Ganesh
 			    if(j == val) {
 			    	
 			    	res.render('userlist', {
-			            "userlist" : items
+			            "userlist" : booklist
 			        });
-			    	console.log(details);
+			    	console.log("Details = " + details);
+			    	console.log("2" + booklist);
 			    }		    
 			   
 		   }); // End db.get
