@@ -1,0 +1,8 @@
+applications:
+- name: bluemix-cloudant
+  memory: 256M
+  instances: 1
+  host: bluemix-cloudant
+  domain: mybluemix.net
+  path: .
+  command: node app.js
