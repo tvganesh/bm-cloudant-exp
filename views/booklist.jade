@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= "Display the list of books"
+  p 
+  strong DocId  Title   Author 
+                  
+  table
+     each book, i in booklist
+        tr
+          td #{book}
+  p
+  p
+  a(href='/') Home

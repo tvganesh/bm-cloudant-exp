@@ -14,13 +14,13 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
-  , userlist = require('./routes/userlist')
-  , newuser = require('./routes/newuser')
-  , adduser = require('./routes/adduser')
-  , changeuser = require('./routes/changeuser')
-  , updateuser = require('./routes/updateuser')
-  , remuser = require('./routes/remuser')
-  , deleteuser = require('./routes/deleteuser')
+  , booklist = require('./routes/booklist')
+  , newbook = require('./routes/newbook')
+  , addbook = require('./routes/addbook')
+  , changebook = require('./routes/changebook')
+  , updatebook = require('./routes/updatebook')
+  , rembook = require('./routes/rembook')
+  , deletebook = require('./routes/deletebook')
   , http = require('http')
   , path = require('path');
 
@@ -48,15 +48,15 @@ app.configure('development', function(){
 
 // Invoke the appropriate Express middleware
 app.get('/', routes.index);
-app.get('/users', user.list);
+//app.get('/users', user.list);
 app.get('/helloworld', routes.index);
-app.get('/userlist', userlist.list);
-app.get('/newuser', newuser.list);
-app.post('/adduser',adduser.list);
-app.get('/changeuser', changeuser.list);
-app.post('/updateuser', updateuser.list);
-app.get('/remuser', remuser.list);
-app.post('/deleteuser',deleteuser.list);
+app.get('/booklist', booklist.list);
+app.get('/newbook', newbook.list);
+app.post('/addbook',addbook.list);
+app.get('/changebook', changebook.list);
+app.post('/updatebook', updatebook.list);
+app.get('/rembook', rembook.list);
+app.post('/deletebook',deletebook.list);
 
 
 if (process.env.VCAP_SERVICES) {
@@ -122,19 +122,19 @@ http.createServer(app).listen(app.get('port'), function(){
 			  author: 'John Grisham',
 			  Title : 'The Firm'		  
 			}, 'book1', function (err, response) {
-			  console.log(err || response);
+			 // console.log(err || response);
 			});
 		 db.put({
 			  author: 'Authur C Clarke',
 			  Title : '2001: A Space Odyssey'		  
 			}, 'book2', function (err, response) {
-			  console.log(err || response);
+			  //console.log(err || response);
 			});
 		 db.put({
 			  author: 'Dan Brown',
 			  Title : 'Digital Fortress'		  
 			}, 'book3', function (err, response) {
-			  console.log(err || response);
+			  //console.log(err || response);
 			});
   	
   }); 

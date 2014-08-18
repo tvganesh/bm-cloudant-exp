@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1= "Add a book"
+    form#formAddBook(name="addbook",method="post",action="/addbook")
+        input#inputBookTitle(type="text", placeholder="Title", name="title")
+        input#inputBookAuthor(type="text", placeholder="Author", name="author")
+        button#btnSubmit(type="submit") submit
+    p
+    p
+    a(href='/') Home

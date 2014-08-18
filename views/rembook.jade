@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1= "Delete a book"
+    form#formDeleteBook(name="addbook",method="post",action="/deletebook")
+        input#DocId(type="text", placeholder="DocId", name="docid")
+        button#btnSubmit(type="submit") submit
+    p
+    p
+    a(href='/') Home
